@@ -14,15 +14,18 @@ RUN DEBIAN_FRONTEND=noninteractive && \
     make install && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-
 RUN useradd -ms /bin/bash memcached
 USER memcached
 WORKDIR /home/memcached
 
+# Script
+ADD scripts /scripts
+RUN chmod +x /scripts/*.sh
+
+
 # Command to run
-RUN echo "Starting memcached"
-CMD ["/usr/bin/memcached", "-u memcached123 -l 0.0.0.0 -p 11211 -m 4096 -c 2048 -t 4 -vv"]
-RUN echo "Started memcached"
+ENTRYPOINT ["/scripts/run.sh"]
+CMD [""]
 
 # Expose listen port
 EXPOSE 11211
