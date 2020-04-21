@@ -14,8 +14,12 @@ RUN DEBIAN_FRONTEND=noninteractive && \
     make install && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+
+RUN useradd -ms /bin/bash memcached
+USER memcached
+WORKDIR /home/memcached
 # Command to run
-CMD ["memcached", "-u daemon -l 0.0.0.0 -p 11211 -m 4096 -c 2048 -t 4 -v"]
+CMD ["memcached", "-u memcached -l 0.0.0.0 -p 11211 -m 4096 -c 2048 -t 4 -v"]
 
 # Expose listen port
 EXPOSE 11211
