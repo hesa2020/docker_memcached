@@ -2,4 +2,4 @@
 
 # Start Memcached
 echo "Starting Memcached..."
-memcached -u deamon -l 0.0.0.0 $@
+memcached -u daemon -l 0.0.0.0 $@
