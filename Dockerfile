@@ -19,8 +19,7 @@ ADD scripts /scripts
 RUN chmod +x /scripts/*.sh
 
 # Command to run
-ENTRYPOINT ["/scripts/run.sh"]
-CMD [""]
+CMD ["memcached", "-u daemon -l 0.0.0.0 -p 11211 -m 4096 -c 2048 -t 4 -v"]
 
 # Expose listen port
 EXPOSE 11211
