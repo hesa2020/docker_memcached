@@ -21,7 +21,7 @@ WORKDIR /home/memcached
 
 # Command to run
 RUN echo "Starting memcached"
-CMD ["memcached", "-u memcached -l 0.0.0.0 -p 11211 -m 4096 -c 2048 -t 4 -v"]
+CMD ["/usr/bin/memcached", "-u memcached -l 0.0.0.0 -p 11211 -m 4096 -c 2048 -t 4 -v"]
 RUN echo "Started memcached"
 
 # Expose listen port
