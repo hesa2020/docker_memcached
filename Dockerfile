@@ -1,13 +1,13 @@
 FROM frodenas/ubuntu
 
-# Install Memcached 1.4.20
+# Install Memcached 1.6.5
 RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --force-yes \
     libevent-dev \
     && cd /tmp && \
-    wget http://memcached.org/files/memcached-1.4.20.tar.gz && \
-    tar xzvf memcached-1.4.20.tar.gz && \
-    cd memcached-1.4.20 && \
+    wget http://memcached.org/files/memcached-1.6.5.tar.gz && \
+    tar xzvf memcached-1.6.5.tar.gz && \
+    cd memcached-1.6.5 && \
     apt-get install -y --force-yes libevent-dev && \
     ./configure && \
     make && \
