@@ -4,7 +4,7 @@ FROM frodenas/ubuntu
 RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --force-yes \
     libevent-dev \
-    cd /tmp && \
+    && cd /tmp && \
     wget http://memcached.org/files/memcached-1.4.20.tar.gz && \
     tar xzvf memcached-1.4.20.tar.gz && \
     cd memcached-1.4.20 && \
