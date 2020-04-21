@@ -14,14 +14,11 @@ RUN DEBIAN_FRONTEND=noninteractive && \
     make install && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN useradd -ms /bin/bash memcached
-USER memcached
-WORKDIR /home/memcached
-
 # Script
 ADD scripts /scripts
 RUN chmod +x /scripts/*.sh
 
+RUN useradd -ms /bin/bash memcached
 
 # Command to run
 ENTRYPOINT ["/scripts/run.sh"]
