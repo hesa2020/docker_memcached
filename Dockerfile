@@ -18,8 +18,11 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 RUN useradd -ms /bin/bash memcached
 USER memcached
 WORKDIR /home/memcached
+
 # Command to run
+RUN echo "Starting memcached"
 CMD ["memcached", "-u memcached -l 0.0.0.0 -p 11211 -m 4096 -c 2048 -t 4 -v"]
+RUN echo "Started memcached"
 
 # Expose listen port
 EXPOSE 11211
